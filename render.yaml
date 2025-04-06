@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: cs-visualizer
+    env: node
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js # or whatever your entry point is
+    autoDeploy: true
+    pullRequestPreviewsEnabled: true
+    envVars:
+      - key: NODE_ENV
+        value: production
