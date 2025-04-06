@@ -1,0 +1,249 @@
+/* Reset default margins/padding and use border-box sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-weight: 300;
+}
+
+/* Ensure the html and body take full height */
+html, body {
+  height: 100%;
+  font-family: Consolas, "Courier New", monospace;
+  background-color: #1f293f;     /* Dark blue/gray background */
+}
+
+/* Main container uses flex in column direction to stack header and content */
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Top title bar styling */
+header {
+  background-color: #0A0D12;
+  min-height: 2em;                /* Fixed height for the header */
+  color: #eeeeee;                 /* White text */
+  display: flex;
+  align-items: center;         /* Center content vertically */
+  padding: 0 20px;             /* Horizontal padding */
+  font-size: 18px;
+  margin-bottom: 1px;
+}
+
+/* Content area below header: contains the sidebar and main area */
+.content {
+  flex: 1;                     /* Fills remaining vertical space */
+  display: flex;               /* Arrange children side-by-side */
+}
+
+.sidebar {
+  background-color: #0A0D12;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 60px; /* Adjust width */
+  margin-right: 1px;
+}
+
+.sidebar button {
+  position: relative;
+  background-color: transparent;
+  color: #425366;
+  border: none;
+  height: 65px;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+i {
+  position: absolute;
+  transform: translate(-50%);
+  bottom: 28px;
+}
+
+.shortcut {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: 500;
+  font-size: 11px;
+  color: #536880;
+  background: transparent; /* Transparent background */
+  padding: 0; /* Removed padding */
+}
+
+.sidebar button:hover {
+    background: #121c2b; /* Slightly lighter on hover */
+    color: #98aabd; /* Slightly lighter on hover */
+}
+    
+/* Main area that holds the left widget and the right widget container */
+.main-area {
+  flex: 1;                     /* Take remaining horizontal space */
+  display: flex;               /* Arrange left and right sections side-by-side */
+}
+
+#consoleContainer {
+  flex: 4;                     /* Equally share vertical space */
+  background-color: #0E131B;     /* Light gray background */
+  color: #FFF;
+  font-size: 16px;
+  overflow-y: auto;
+}
+
+#tokenContainerContainer {
+  display: block;
+  flex: 1;
+  width: 50%;
+  background-color: #0E131B;     /* Light gray background */
+  overflow-y: auto;
+}
+
+#tokenContainerContainer::-webkit-scrollbar {
+  display: none;
+}
+
+#consoleContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.token-container {
+  display: block;
+  flex-direction: column;
+  align-items: stretch;  /* Force children to fill parent's width */
+  width: 100%;
+  height: 0px;
+  background-color: #0E131B;     /* Light gray background */
+}
+
+/* Right container for two vertically stacked widgets */
+.right-widgets {
+  flex: 1;                     /* Occupies less horizontal space */
+  display: flex;
+  flex-direction: column;      /* Stack the widgets vertically */
+  margin-right: 1px;
+}
+
+/* Each widget in the right container */
+.console {
+  display: block;
+  flex-direction: column;
+  align-items: stretch;
+  background-color: #0E131B;     /* Light gray background */
+  color: #FFF;
+  padding: 10px;
+  font-size: 16px;
+  width: 100%;
+  height: 0px;
+}
+    
+.container {
+  display: flex;
+  flex: 1;
+  width: 100%;
+}
+
+.token-line {
+  display: flex;
+  flex-wrap: wrap;  /* Ensures items go to the next line if needed */
+  align-items: center; /* Aligns items properly */
+  width: 100%;
+  padding-left: 30px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  min-height: 1.5em; /* Ensures minimum height to avoid collapsing */
+}
+
+.token {
+  background: none;
+  border: none;
+  transition: transform 0.4s ease-in-out;
+  display: inline-block;
+  white-space: pre;
+  font-size: 20px;
+}
+
+#editor {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background-color: #0E131B;     /* Light gray background */
+  margin-bottom: 1px;
+}
+
+#editor-container {
+    width: 100%;
+    height: 100%;
+    border: none;
+    flex: 5;                     /* Equally share vertical space */
+    background-color: #0E131B;     /* Light gray background */
+    margin-bottom: 1px;
+}
+
+.fade-in {
+  opacity: 1;
+  transform: scale(1.2);
+  animation: fadeIn 0.4s ease-in-out forwards;
+}
+
+.fade-out {
+  opacity: 1;
+  transform: scale(1);
+  animation: fadeOut 0.4s ease-in-out forwards;
+}
+
+.line-fade-out {
+  opacity: 1;
+  animation: lineFadeOut 0.4s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0.1;
+    transform: scale(1.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0.6;
+    transform: scale(1.2);
+  }
+}
+
+@keyframes lineFadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  font-size: 20px;
+}
+
+.prompt-line {
+  line-height: 1.5em;
+}
+.prompt {
+  margin-right: 5px;
+}
+.cmd-input {
+  outline: none;
+}

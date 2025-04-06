@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Node.js Monaco + Console</title>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.45.0/min/vs/loader.min.js"></script>
+    <script src="script.js"></script>
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+<body>
+    <link rel="stylesheet" href="styles.css">
+
+    <div class="container">
+        <!-- Top Title Bar -->
+        <header>
+          <h4>C# Visual Interpeter</h4>
+        </header>
+        
+        <!-- Content Area: Sidebar and Main Area -->
+        <div class="content">
+          <!-- Vertical Sidebar with Buttons -->
+          <div class="sidebar">
+            <button id="stepButton">
+              <i class="fa-solid fa-arrow-right"></i>
+              <span class="shortcut">Enter</span>
+            </button>
+            <button id="playPauseButton">
+              <i class="fa-solid fa-play"></i>
+              <span class="shortcut">Space</span>
+            </button>
+            <button id="refreshButton">
+              <i class="fa-solid fa-rotate-right"></i>
+              <span class="shortcut">Shift+R</span>
+            </button>
+        </div>
+          
+          <!-- Main Area with Left and Right Widgets -->
+          <div class="main-area">
+
+            <!-- Right Widgets Container (two smaller stacked widgets) -->
+            <div class="right-widgets">
+                <div id="editor-container">
+                    <div id="editor"></div>
+                </div>
+                <div id="consoleContainer">
+                  <div class="console" id="console">
+                    <pre></pre>
+                </div>
+                </div>
+            </div>
+                        <!-- Left Main Widget (larger area) -->
+            <div id="tokenContainerContainer">
+              <div class="token-container" id="tokenContainer"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+</html>
