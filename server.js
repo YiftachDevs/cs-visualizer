@@ -4,6 +4,7 @@ const { Server } = require("socket.io");
 const { exec } = require("child_process");
 const fs = require("fs");
 const path = require("path");
+const port = process.env.PORT || 8080;
 
 const app = express();
 const server = http.createServer(app);
@@ -32,4 +33,4 @@ io.on("connection", (socket) => {
     socket.on("disconnect", () => console.log("User disconnected"));
 });
 
-server.listen(3000, () => console.log("Server running at http://localhost:3000"));
+server.listen(port);
